@@ -1,0 +1,221 @@
+document.getElementById("tutorForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.querySelector("input[name='name']").value;
+  const email = document.querySelector("input[name='email']").value;
+  const selectedOption = document.getElementById("myDropdown").value;
+  const notes = document.querySelector("textarea[name='notes']").value;
+
+  const formData = new URLSearchParams();
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("selectedTutor", selectedOption);
+  formData.append("notes", notes);
+
+  console.log("Sending:", Object.fromEntries(formData));
+
+  fetch("https://script.google.com/macros/s/AKfycbydV_8ufZHklfoToA8C-NIeefk2ecw2BzJjtRsi_IIh9CWWF2fZY6RAoGxGCZ-Lwo_vSQ/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: formData.toString(),
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error("Network error");
+      return response.json();
+    })
+    .then((data) => {
+      alert("Registration successful! Thank you.");
+      document.getElementById("tutorForm").reset();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("There was a problem submitting your form.");
+    });
+});
+
+const translations = {
+  en: {
+    heading: "Meet Your Tutor",
+    description: "Explore inspiring tutors and register for your journey today.",
+    browseButton: "Browse Tutors",
+    registerHeading: "Register",
+    namePlaceholder: "Your Name",
+    emailPlaceholder: "Email Address",
+    notesPlaceholder: "Any preferences or notes?",
+    submit: "Submit",
+    tutorLabel: "Choose an option:",
+    availableTutors: "Available Tutors",
+    daysLabel: "Days:",
+    timeLabel: "Time:",
+    timezoneInfo: "*All times are in IST"
+  },
+  es: {
+    heading: "Conoce a tu tutor",
+    description: "Explora tutores inspiradores y regístrate para tu viaje hoy.",
+    browseButton: "Ver tutores",
+    registerHeading: "Registrarse",
+    namePlaceholder: "Tu nombre",
+    emailPlaceholder: "Correo electrónico",
+    notesPlaceholder: "¿Alguna preferencia o nota?",
+    submit: "Enviar",
+    tutorLabel: "Elige una opción:",
+    availableTutors: "Tutores disponibles",
+    daysLabel: "Días:",
+    timeLabel: "Hora:",
+    timezoneInfo: "*Todos los horarios están en IST"
+  },
+  hi: {
+    heading: "अपने ट्यूटर से मिलें",
+    description: "प्रेरणादायक ट्यूटर देखें और आज ही पंजीकरण करें।",
+    browseButton: "ट्यूटर देखें",
+    registerHeading: "पंजीकरण करें",
+    namePlaceholder: "आपका नाम",
+    emailPlaceholder: "ईमेल पता",
+    notesPlaceholder: "कोई पसंद या टिप्पणी?",
+    submit: "जमा करें",
+    tutorLabel: "एक विकल्प चुनें:",
+    availableTutors: "उपलब्ध ट्यूटर",
+    daysLabel: "दिन:",
+    timeLabel: "समय:",
+    timezoneInfo: "*सभी समय IST में हैं"
+  },
+  ta: {
+    heading: "உங்கள் ட்யூட்டரை சந்திக்கவும்",
+    description: "ஊக்கமளிக்கும் ட்யூட்டர்களைப் பார்வையிட்டு, இன்று உங்கள் பயணத்தை பதிவு செய்யுங்கள்.",
+    browseButton: "ட்யூட்டர்கள் பார்க்க",
+    registerHeading: "பதிவு செய்க",
+    namePlaceholder: "உங்கள் பெயர்",
+    emailPlaceholder: "மின்னஞ்சல் முகவரி",
+    notesPlaceholder: "விருப்பங்கள் அல்லது குறிப்பு?",
+    submit: "சமர்ப்பிக்கவும்",
+    tutorLabel: "ஒரு விருப்பத்தைத் தேர்ந்தெடுக்கவும்:",
+    availableTutors: "கிடைக்கக்கூடிய ட்யூட்டர்கள்",
+    daysLabel: "நாட்கள்:",
+    timeLabel: "நேரம்:",
+    timezoneInfo: "*அனைத்து நேரங்களும் IST இல் உள்ளன"
+  },
+  te: {
+    heading: "మీ ట్యూటర్‌ను కలవండి",
+    description: "ప్రేరణాత్మక ట్యూటర్లను అన్వేషించి, మీ ప్రయాణాన్ని ఈరోజే ప్రారంభించండి.",
+    browseButton: "ట్యూటర్లను వీక్షించండి",
+    registerHeading: "నమోదు",
+    namePlaceholder: "మీ పేరు",
+    emailPlaceholder: "ఈమెయిల్ చిరునామా",
+    notesPlaceholder: "ప్రాధాన్యతలు లేదా గమనికలు?",
+    submit: "సమర్పించండి",
+    tutorLabel: "ఒక ఎంపికను ఎంచుకోండి:",
+    availableTutors: "అందుబాటులో ఉన్న ట్యూటర్లు",
+    daysLabel: "రోజులు:",
+    timeLabel: "సమయం:",
+    timezoneInfo: "*అన్ని సమయాలు IST లో ఉన్నాయి"
+  },
+  kn: {
+    heading: "ನಿಮ್ಮ ಟ್ಯೂಟರ್ ಅನ್ನು ಭೇಟಿಯಾಗಿರಿ",
+    description: "ಪ್ರೇರಣಾತ್ಮಕ ಟ್ಯೂಟರ್‌ಗಳನ್ನು ಅನ್ವೇಷಿಸಿ, ಇಂದೇ ನಿಮ್ಮ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಿ.",
+    browseButton: "ಟ್ಯೂಟರ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
+    registerHeading: "ನೋಂದಣಿ",
+    namePlaceholder: "ನಿಮ್ಮ ಹೆಸರು",
+    emailPlaceholder: "ಇಮೇಲ್ ವಿಳಾಸ",
+    notesPlaceholder: "ಆಯ್ಕೆಗಳು ಅಥವಾ ಟಿಪ್ಪಣಿಗಳು?",
+    submit: "ಸಲ್ಲಿಸು",
+    tutorLabel: "ಒಂದು ಆಯ್ಕೆಯನ್ನು ಆರಿಸಿ:",
+    availableTutors: "ಲಭ್ಯವಿರುವ ಟ್ಯೂಟರ್‌ಗಳು",
+    daysLabel: "ದಿನಗಳು:",
+    timeLabel: "ಸಮಯ:",
+    timezoneInfo: "*ಎಲ್ಲಾ ಸಮಯಗಳು IST ನಲ್ಲಿ ಇವೆ"
+  },
+  bn: {
+    heading: "আপনার টিউটরের সঙ্গে দেখা করুন",
+    description: "অনুপ্রেরণামূলক টিউটরদের অন্বেষণ করুন এবং আজই রেজিস্টার করুন।",
+    browseButton: "টিউটর দেখুন",
+    registerHeading: "রেজিস্টার করুন",
+    namePlaceholder: "আপনার নাম",
+    emailPlaceholder: "ইমেইল ঠিকানা",
+    notesPlaceholder: "পছন্দ বা নোট?",
+    submit: "জমা দিন",
+    tutorLabel: "একটি বিকল্প নির্বাচন করুন:",
+    availableTutors: "উপলভ্য টিউটর",
+    daysLabel: "দিন:",
+    timeLabel: "সময়:",
+    timezoneInfo: "*সমস্ত সময় IST-এ"
+  },
+  mr: {
+    heading: "आपल्या ट्यूटरला भेटा",
+    description: "प्रेरणादायक ट्यूटर शोधा आणि आजच नोंदणी करा.",
+    browseButton: "ट्यूटर पहा",
+    registerHeading: "नोंदणी करा",
+    namePlaceholder: "तुमचे नाव",
+    emailPlaceholder: "ईमेल पत्ता",
+    notesPlaceholder: "कोणत्याही पसंती किंवा टीपा?",
+    submit: "सबमिट करा",
+    tutorLabel: "एक पर्याय निवडा:",
+    availableTutors: "उपलब्ध ट्यूटर",
+    daysLabel: "दिवस:",
+    timeLabel: "वेळ:",
+    timezoneInfo: "*सर्व वेळा IST मध्ये आहेत"
+  }
+};
+
+document.querySelector('.language-selector').addEventListener('change', (e) => {
+  const lang = e.target.value;
+  translateSite(lang);
+});
+
+function translateSite(lang) {
+  const t = translations[lang];
+  if (!t) return;
+
+  document.querySelector('#hero h1').textContent = t.heading;
+  document.querySelector('#hero p').textContent = t.description;
+  document.querySelector('.cta-btn').textContent = t.browseButton;
+  document.querySelector('#register h2').textContent = t.registerHeading;
+  document.querySelector("input[name='name']").placeholder = t.namePlaceholder;
+  document.querySelector("input[name='email']").placeholder = t.emailPlaceholder;
+  document.querySelector("textarea[name='notes']").placeholder = t.notesPlaceholder;
+  document.querySelector("label[for='myDropdown']").textContent = t.tutorLabel;
+  document.querySelector(".submit-btn").textContent = t.submit;
+  document.querySelector('#tutors h2').textContent = t.availableTutors;
+  document.querySelectorAll('#label-days').forEach(el => el.textContent = t.daysLabel);
+  document.querySelectorAll('#label-time').forEach(el => el.textContent = t.timeLabel);
+  document.getElementById('timezone-info').textContent = t.timezoneInfo;
+}
+
+// Convert IST times to user's local time zone
+function convertTutorTimes() {
+  const timeElements = document.querySelectorAll(".time-value");
+
+  timeElements.forEach((el) => {
+    const originalText = el.textContent;
+    const timeStrings = originalText.split(",").map(t => t.trim());
+
+    const convertedTimes = timeStrings.map((timeStr) => {
+      const dateInIST = new Date();
+      const [match, hour, suffix] = timeStr.match(/(\d+)(am|pm)/i) || [];
+      if (!match) return timeStr;
+
+      let hours = parseInt(hour);
+      if (suffix.toLowerCase() === "pm" && hours !== 12) hours += 12;
+      if (suffix.toLowerCase() === "am" && hours === 12) hours = 0;
+
+      dateInIST.setHours(hours);
+      dateInIST.setMinutes(0);
+      dateInIST.setSeconds(0);
+      dateInIST.setMilliseconds(0);
+
+      // Convert IST to UTC
+      const utcTime = new Date(dateInIST.getTime() - (5.5 * 60 * 60 * 1000));
+
+      // Convert UTC to user's local time
+      const localTime = new Date(utcTime.getTime() + (new Date().getTimezoneOffset() * -60 * 1000));
+
+      return localTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+    });
+
+    el.textContent = convertedTimes.join(", ");
+  });
+}
+
+// Run on page load
+window.addEventListener("DOMContentLoaded", convertTutorTimes);

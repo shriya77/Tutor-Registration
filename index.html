@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VisioNari | Tutor Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="spacer"></div>
+    <select class="language-selector">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="es">Español</option>
+      <option value="ta">தமிழ் (Tamil)</option>
+      <option value="bn">বাংলা (Bengali)</option>
+      <option value="mr">मराठी (Marathi)</option>
+      <option value="kn">ಕನ್ನಡ (Kannada)</option>
+      <option value="te">తెలుగు (Telugu)</option>
+    </select>
+  </div>
+
+  <header id="hero">
+    <h1>Meet Your Tutor</h1>
+    <p>Explore inspiring tutors and register for your journey today.</p>
+    <a href="#tutors" class="cta-btn">Browse Tutors</a>
+  </header>
+
+  <section id="tutors">
+    <h2>Available Tutors</h2>
+    <div class="tutor-grid">
+      <div class="tutor-card">
+        <img src="https://cdn-icons-png.freepik.com/512/146/146005.png" alt="Tutor" />
+        <h3>Aisha Patel</h3>
+        <p>English • Tamil • Hindi</p>
+        <div class="box"><span class="label" id="label-days">Days:</span> <span class="value" id="days-value-1">Sunday</span></div>
+        <br>
+        <div class="box2"><span class="label" id="label-time">Time:</span> <span class="value time-value" id="time-value-1">2pm, 9pm</span></div>
+      </div>
+      <div class="tutor-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/164/164874.png" alt="Tutor" />
+        <h3>Sophia Nguyen</h3>
+        <p>English • Telugu</p>
+        <div class="box"><span class="label" id="label-days">Days:</span> <span class="value" id="days-value-2">Sunday, Monday</span></div>
+        <br>
+        <div class="box2"><span class="label" id="label-time">Time:</span> <span class="value time-value" id="time-value-2">4pm</span></div>
+      </div>
+      <div class="tutor-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/146/146007.png" alt="Tutor" />
+        <h3>Kyle Jones</h3>
+        <p>English • Spanish • Portugese</p>
+        <div class="box"><span class="label" id="label-days">Days:</span> <span class="value" id="days-value-3">Wednesday</span></div>
+        <br>
+        <div class="box2"><span class="label" id="label-time">Time:</span> <span class="value time-value" id="time-value-3">9am</span></div>
+      </div>
+      <div class="timezone">
+        <p id="timezone-info">*Times shown in your local time zone: <span id="local-zone"></span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="register">
+    <h2>Register</h2>
+    <form id="tutorForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <label for="myDropdown" style="height: 20px; font-size: 16px; display: inline-block;">Choose a tutor:</label>
+        <select name="myDropdown" id="myDropdown" style="height: 50px; width: 250px; font-size: 16px; font-family: nunito;">
+        <option value="Aisha">Aisha</option>
+        <option value="Kyle">Kyle</option>
+        <option value="Sophia">Sophia</option>
+  </select>
+      <textarea name="notes" placeholder="Any preferences or notes?"></textarea>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </section>
+<script src="script.js"></script>
+</body>
+</html>
