@@ -219,3 +219,10 @@ function convertTutorTimes() {
 
 // Run on page load
 window.addEventListener("DOMContentLoaded", convertTutorTimes);
+
+// Toggle card flip on click
+document.querySelectorAll(".flip-card-inner").forEach((card) => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("flipped");
+  });
+});
