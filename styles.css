@@ -115,16 +115,34 @@ button {
 .box {
   width: 293px;
   min-height: 35px;
-  background: linear-gradient(to left, #ffdf44, #ea8302);
+  background: linear-gradient(135deg, #ffdf44, #f6eaf8);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
-  border: 1px solid black;
-  padding: 5px 10px;
-  border-radius: 10px;
-  border-width: 2px;
+  border: 1px solid #d6a700;
+  padding: 8px 12px;
+  border-radius: 14px;
+  border-width: 1.5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.box .label,
+.box .value {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.box .value {
+  letter-spacing: 0.3px;
+}
+
+.box:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
 }
 
 .box2 {
