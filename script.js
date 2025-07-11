@@ -182,39 +182,37 @@ function translateSite(lang) {
   document.getElementById('timezone-info').textContent = t.timezoneInfo;
 }
 
-// Convert IST times to user's local time zone
+// Convert tutor times to user's local time zone, using data-days and data-times attributes
 function convertTutorTimes() {
-  const timeElements = document.querySelectorAll(".time-value");
+  const DateTime = luxon.DateTime;
 
-  timeElements.forEach((el) => {
-    const originalText = el.textContent;
-    const timeStrings = originalText.split(",").map(t => t.trim());
+  document.querySelectorAll(".time-value").forEach(el => {
+    const tz = el.dataset.timezone;
+    const dayList = el.dataset.days.split(',').map(d => d.trim());
+    const timeList = el.dataset.times.split(',').map(t => t.trim());
 
-    const convertedTimes = timeStrings.map((timeStr) => {
-      const dateInIST = new Date();
-      const [match, hour, suffix] = timeStr.match(/(\d+)(am|pm)/i) || [];
-      if (!match) return timeStr;
+    const output = [];
 
-      let hours = parseInt(hour);
-      if (suffix.toLowerCase() === "pm" && hours !== 12) hours += 12;
-      if (suffix.toLowerCase() === "am" && hours === 12) hours = 0;
+    dayList.forEach(day => {
+      timeList.forEach(time => {
+        let dt = DateTime.now().setZone(tz);
+        dt = dt.set({ weekday: DateTime.fromFormat(day, "cccc").weekday });
 
-      dateInIST.setHours(hours);
-      dateInIST.setMinutes(0);
-      dateInIST.setSeconds(0);
-      dateInIST.setMilliseconds(0);
+        const parsedTime = DateTime.fromFormat(time, "h:mma", { zone: tz });
+        dt = dt.set({ hour: parsedTime.hour, minute: parsedTime.minute });
 
-      // Convert IST to UTC
-      const utcTime = new Date(dateInIST.getTime() - (5.5 * 60 * 60 * 1000));
-
-      // Convert UTC to user's local time
-      const localTime = new Date(utcTime.getTime() + (new Date().getTimezoneOffset() * -60 * 1000));
-
-      return localTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+        const local = dt.setZone(DateTime.local().zoneName);
+        output.push(`${local.toFormat("cccc")} at ${local.toFormat("h:mma")}`);
+      });
     });
 
-    el.textContent = convertedTimes.join(", ");
+    el.textContent = output.join(", ");
   });
+
+  const tzDisplay = document.getElementById("local-zone");
+  if (tzDisplay) {
+    tzDisplay.textContent = DateTime.local().zoneName;
+  }
 }
 
 // Run on page load

@@ -88,6 +88,7 @@ section {
 
 .tutor-card p {
   margin-bottom: 10px;
+  font-size: 14px;
 }
 
 .tutor-card input[type='checkbox'] {
@@ -112,16 +113,18 @@ button {
 }
 
 .box {
-    width: 293px;
-    height: 35px;
-    background: linear-gradient(to left, #ffdf44, #ea8302);
-    align-items: center;
-    text-align: center;
-    border: 1px solid black;
-    vertical-align:middle;
-    padding-top: 5px;
-    border-radius: 10px;
-    border-width: 2px;
+  width: 293px;
+  min-height: 35px;
+  background: linear-gradient(to left, #ffdf44, #ea8302);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border-width: 2px;
 }
 
 .box2 {
@@ -232,4 +235,7 @@ button.submit-btn {
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
+}
+.time-value {
+  font-size: 14px;
 }
