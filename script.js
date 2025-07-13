@@ -49,7 +49,7 @@ const translations = {
     availableTutors: "Available Tutors",
     daysLabel: "Days:",
     timeLabel: "Time:",
-    timezoneInfo: "*All times are in IST"
+    timezoneInfo: "*Times shown in your local time zone"
   },
   es: {
     heading: "Conoce a tu tutor",
@@ -64,7 +64,7 @@ const translations = {
     availableTutors: "Tutores disponibles",
     daysLabel: "Días:",
     timeLabel: "Hora:",
-    timezoneInfo: "*Todos los horarios están en IST"
+    timezoneInfo: "*Times shown in your local time zone"
   },
   hi: {
     heading: "अपने ट्यूटर से मिलें",
@@ -79,7 +79,7 @@ const translations = {
     availableTutors: "उपलब्ध ट्यूटर",
     daysLabel: "दिन:",
     timeLabel: "समय:",
-    timezoneInfo: "*सभी समय IST में हैं"
+    timezoneInfo: "*Times shown in your local time zone"
   },
   ta: {
     heading: "உங்கள் ட்யூட்டரை சந்திக்கவும்",
@@ -94,7 +94,7 @@ const translations = {
     availableTutors: "கிடைக்கக்கூடிய ட்யூட்டர்கள்",
     daysLabel: "நாட்கள்:",
     timeLabel: "நேரம்:",
-    timezoneInfo: "*அனைத்து நேரங்களும் IST இல் உள்ளன"
+    timezoneInfo: "*Times shown in your local time zone"
   },
   te: {
     heading: "మీ ట్యూటర్‌ను కలవండి",
@@ -109,7 +109,7 @@ const translations = {
     availableTutors: "అందుబాటులో ఉన్న ట్యూటర్లు",
     daysLabel: "రోజులు:",
     timeLabel: "సమయం:",
-    timezoneInfo: "*అన్ని సమయాలు IST లో ఉన్నాయి"
+    timezoneInfo: "*Times shown in your local time zone"
   },
   kn: {
     heading: "ನಿಮ್ಮ ಟ್ಯೂಟರ್ ಅನ್ನು ಭೇಟಿಯಾಗಿರಿ",
@@ -124,7 +124,7 @@ const translations = {
     availableTutors: "ಲಭ್ಯವಿರುವ ಟ್ಯೂಟರ್‌ಗಳು",
     daysLabel: "ದಿನಗಳು:",
     timeLabel: "ಸಮಯ:",
-    timezoneInfo: "*ಎಲ್ಲಾ ಸಮಯಗಳು IST ನಲ್ಲಿ ಇವೆ"
+    timezoneInfo: "*Times shown in your local time zone"
   },
   bn: {
     heading: "আপনার টিউটরের সঙ্গে দেখা করুন",
@@ -139,7 +139,7 @@ const translations = {
     availableTutors: "উপলভ্য টিউটর",
     daysLabel: "দিন:",
     timeLabel: "সময়:",
-    timezoneInfo: "*সমস্ত সময় IST-এ"
+    timezoneInfo: "*Times shown in your local time zone"
   },
   mr: {
     heading: "आपल्या ट्यूटरला भेटा",
@@ -154,7 +154,7 @@ const translations = {
     availableTutors: "उपलब्ध ट्यूटर",
     daysLabel: "दिवस:",
     timeLabel: "वेळ:",
-    timezoneInfo: "*सर्व वेळा IST मध्ये आहेत"
+    timezoneInfo: "*Times shown in your local time zone"
   }
 };
 
@@ -202,7 +202,7 @@ function convertTutorTimes() {
         dt = dt.set({ hour: parsedTime.hour, minute: parsedTime.minute });
 
         const local = dt.setZone(DateTime.local().zoneName);
-        output.push(`${local.toFormat("cccc")} at ${local.toFormat("h:mma")}`);
+        output.push(`${local.toFormat("cccc h:mma")}`);
       });
     });
 
