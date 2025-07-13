@@ -160,9 +160,11 @@ button {
 }
 
 .timezone {
-    text-align: auto;
-    align-items:auto;
-    font-weight: bold;
+  color: #6a1b9a;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
 }
 
 button.submit-btn {
