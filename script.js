@@ -2,13 +2,13 @@ document.getElementById("tutorForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const name = document.querySelector("input[name='name']").value;
-  const email = document.querySelector("input[name='email']").value;
+  const phone = document.querySelector("input[name='phone']").value;
   const selectedOption = document.getElementById("myDropdown").value;
   const notes = document.querySelector("textarea[name='notes']").value;
 
   const formData = new URLSearchParams();
   formData.append("name", name);
-  formData.append("email", email);
+  formData.append("phone", phone);
   formData.append("selectedTutor", selectedOption);
   formData.append("notes", notes);
 
@@ -172,7 +172,7 @@ function translateSite(lang) {
   document.querySelector('.cta-btn').textContent = t.browseButton;
   document.querySelector('#register h2').textContent = t.registerHeading;
   document.querySelector("input[name='name']").placeholder = t.namePlaceholder;
-  document.querySelector("input[name='email']").placeholder = t.emailPlaceholder;
+  document.querySelector("input[name='phone']").placeholder = t.emailPlaceholder;
   document.querySelector("textarea[name='notes']").placeholder = t.notesPlaceholder;
   document.querySelector("label[for='myDropdown']").textContent = t.tutorLabel;
   document.querySelector(".submit-btn").textContent = t.submit;
