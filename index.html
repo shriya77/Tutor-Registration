@@ -31,8 +31,13 @@
 
   <section id="tutors">
     <h2>Available Tutors</h2>
+    <div class="filter-buttons">
+      <button onclick="filterTutors('1')">Level 1</button>
+      <button onclick="filterTutors('2')">Level 2</button>
+      <button onclick="filterTutors('all')">Show All</button>
+    </div>
     <div class="tutor-grid">
-      <div class="flip-card">
+      <div class="flip-card" data-level="1">
         <div class="flip-card-inner">
           <div class="tutor-card flip-card-front">
             <img src="image - Nikitha.jpg" alt="Tutor" />
@@ -46,7 +51,7 @@
           </div>
         </div>
       </div>
-      <div class="flip-card">
+      <div class="flip-card" data-level="2">
         <div class="flip-card-inner">
           <div class="tutor-card flip-card-front">
             <img src="Screenshot 2025-07-11 at 5.50.24 PM.png" alt="Tutor" />
@@ -60,7 +65,7 @@
           </div>
         </div>
       </div>
-      <div class="flip-card">
+      <div class="flip-card" data-level="1">
         <div class="flip-card-inner">
           <div class="tutor-card flip-card-front">
             <img src="Screenshot 2025-07-11 at 5.50.28 PM.png" alt="Tutor" />
@@ -74,7 +79,7 @@
           </div>
         </div>
       </div>
-      <div class="flip-card">
+      <div class="flip-card" data-level="2">
         <div class="flip-card-inner">
           <div class="tutor-card flip-card-front">
             <img src="IMG_4799 - Nidhi Veerendra.jpeg" alt="Tutor" />
@@ -88,7 +93,7 @@
           </div>
         </div>
       </div>
-      <div class="flip-card">
+      <div class="flip-card" data-level="2">
         <div class="flip-card-inner">
           <div class="tutor-card flip-card-front">
             <img src="DSC00179 - Abiramy Radhakrishnan.jpeg" alt="Tutor" />
@@ -102,7 +107,7 @@
           </div>
         </div>
       </div>
-      <div class="flip-card">
+      <div class="flip-card" data-level="2">
         <div class="flip-card-inner">
           <div class="tutor-card flip-card-front">
             <img src="Screenshot 2025-07-11 at 5.49.33 PM.png" alt="Tutor" />
@@ -142,5 +147,18 @@
   </section>
 <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
 <script src="script.js"></script>
+<script>
+  function filterTutors(level) {
+    const cards = document.querySelectorAll(".flip-card");
+    cards.forEach(card => {
+      const cardLevel = card.getAttribute("data-level");
+      if (level === "all" || cardLevel === level) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+</script>
 </body>
 </html>

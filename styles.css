@@ -257,3 +257,28 @@ button.submit-btn {
 .time-value {
   font-size: 14px;
 }
+
+
+/* Filter Buttons Styles */
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.filter-buttons button {
+  background-color: var(--purple-light);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: var(--purple-dark);
+  transform: scale(1.05);
+}
