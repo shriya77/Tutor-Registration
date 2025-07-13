@@ -283,3 +283,22 @@ button.submit-btn {
   transform: scale(1.05);
 }
 
+
+
+.choose-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: var(--purple-light);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.choose-btn:hover {
+  background-color: var(--purple-dark);
+  transform: translateY(-1px);
+}
