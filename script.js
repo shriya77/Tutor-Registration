@@ -14,7 +14,7 @@ document.getElementById("tutorForm").addEventListener("submit", function (e) {
 
   console.log("Sending:", Object.fromEntries(formData));
 
-  fetch("https://script.google.com/macros/s/AKfycbydV_8ufZHklfoToA8C-NIeefk2ecw2BzJjtRsi_IIh9CWWF2fZY6RAoGxGCZ-Lwo_vSQ/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbw--X7aGPLDPPMC9x9FOJ0ZmbzEjzIl6SqQjFcA5-wbSE0RlA_uHn0pwkw4_8t3Pr7m0Q/exec", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
